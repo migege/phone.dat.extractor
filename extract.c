@@ -3,7 +3,7 @@
 #include <string.h>
 
 #define VERSION_LENGTH 4
-#define first_index_offset_LENGTH 4
+#define FIRST_INDEX_OFFSET_LENGTH 4
 #define INDEX_LENGTH 9
 
 #pragma pack(push, 1)
@@ -25,7 +25,7 @@ int main(int argc, char** argv) {
         fread(version, 1, VERSION_LENGTH, fp);
 
         int first_index_offset = 0;
-        fread(&first_index_offset, 4, 1, fp);
+        fread(&first_index_offset, FIRST_INDEX_OFFSET_LENGTH, 1, fp);
 
         long index_count = (fsize - first_index_offset) / INDEX_LENGTH;
         Index* indices = (Index*)malloc(index_count * sizeof(Index));
