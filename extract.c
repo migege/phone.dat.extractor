@@ -6,12 +6,13 @@
 #define first_index_offset_LENGTH 4
 #define INDEX_LENGTH 9
 
-#pragma pack(1)
+#pragma pack(push, 1)
 typedef struct {
     int phone;
     int record_offset;
     unsigned char sim_type;
 } Index;
+#pragma pack(pop)
 
 int main(int argc, char** argv) {
     FILE* fp = fopen("./phone.dat", "rb");
